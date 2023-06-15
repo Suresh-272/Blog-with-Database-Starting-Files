@@ -21,7 +21,7 @@ app.use(express.static("public"));
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/blogDB');
+  await mongoose.connect('mongodb+srv://admin-suresh:test123@cluster0.cntihcp.mongodb.net/blogDB');
 
   const postSchema = {
     title: String,
@@ -93,7 +93,7 @@ async function main() {
     });
   });
 
-  app.listen(3000, function() {
+  app.listen(process.env.PORT || 3000, function() {
     console.log("Server started on port 3000");
   });
 
